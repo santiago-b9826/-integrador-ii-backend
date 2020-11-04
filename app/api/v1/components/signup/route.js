@@ -3,7 +3,7 @@ const controller = require('./controller');
 
 const router = new Router();
 
-router.route('/signup')
+router.route('/')
   .post((req, res) => controller.post(req, res));
 
 module.exports = router;
