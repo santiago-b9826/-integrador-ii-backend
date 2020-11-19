@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cdanmontoya/BasicExpressServer#readme",
   "dependencies": {
+    "amazon-cognito-identity-js": "^4.5.4",
     "aws-cognito-jwt-authenticate": "^1.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "express-openapi": "^6.0.0",
     "http-status": "^1.4.2",
     "minimist": "^1.2.5",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
     "sequelize": "^5.21.3",

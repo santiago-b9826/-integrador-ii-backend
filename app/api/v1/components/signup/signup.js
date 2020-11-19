@@ -1,7 +1,8 @@
+require('dotenv').config();
 const {
   USER_POOL_ID,
   CLIENT_ID
-} = require('./../../../config/config');
+} = require('../../../../../config/config');
 const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 
 const poolData = {

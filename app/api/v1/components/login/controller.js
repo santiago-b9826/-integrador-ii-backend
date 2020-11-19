@@ -6,7 +6,7 @@ const post = async (req, res) => {
 
     return res
       .status(httpStatus.OK)
-      .send(ans);
+      .send({token:ans});
   } catch (error) {
     console.error(error);
     return res
