@@ -1,3 +1,4 @@
+const httpStatus = require('http-status');
 const util = require('./transaction');
 
 const getAll = async (res) => {
@@ -32,7 +33,7 @@ const getByProjectId = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const ans = await util.update(req.body);
+    const ans = await util.update(req.body.id ,req.body);
 
     return res
       .status(httpStatus.OK)
@@ -60,9 +61,9 @@ const deleteById = async (req, res) => {
   }
 };
 
-const post = async (req, res) => {
+const create = async (req, res) => {
   try {
-    const ans = await util.create(req.body.id ,req.body);
+    const ans = await util.create(req.body);
 
     return res
       .status(httpStatus.OK)
@@ -76,7 +77,7 @@ const post = async (req, res) => {
 };
 
 module.exports = {
-  post,
+  create,
   update,
   getAll,
   getByProjectId,

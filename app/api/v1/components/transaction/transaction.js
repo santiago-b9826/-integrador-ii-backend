@@ -1,10 +1,10 @@
 const Transaction = require("./model");
 
 const create = async (body) => {
+  console.log(body);
   const transaction = new Transaction({
     id: body.id,
     projectId: body.projectId,
-    creationDate: body.creationDate,
     description: body.description,
     income: body.income,
     type: body.type,
@@ -29,7 +29,6 @@ const getByProjectId = async (projectId) => {
 const update = async (id, body) => {
   const transaction = new Transaction({
     projectId: body.projectId,
-    creationDate: body.creationDate,
     description: body.description,
     income: body.income,
     type: body.type,
