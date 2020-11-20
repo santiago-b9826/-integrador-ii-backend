@@ -7,7 +7,7 @@ router.route('/')
   .post((req, res) => controller.create(req, res));
 
 router.route('/')
-  .get((res) => controller.getAll(res));
+  .get((req,res) => controller.getAll(res));
 
 router.route('/')
   .get((req, res) => controller.getByProjectId(req, res));
