@@ -5,8 +5,12 @@ const router = new Router();
 /*
  * References to each resource routers
  */
-const helloWorld = require('./components/hello-world/route');
+const signup = require('./components/signup/route');
+const login = require('./components/login/route');
+const transaction = require('./components/transaction/route');
 
-router.use('/hello-world', helloWorld);
+router.use('/auth/login', login);
+router.use('/auth/signup', signup);
+router.use('/transaction', transaction);
 
 module.exports = router;

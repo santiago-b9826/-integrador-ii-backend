@@ -4,6 +4,6 @@ const controller = require('./controller');
 const router = new Router();
 
 router.route('/')
-  .get((req, res) => controller.get(req, res));
+  .post((req, res) => controller.post(req, res));
 
 module.exports = router;

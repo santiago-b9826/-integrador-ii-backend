@@ -1,15 +1,11 @@
+const util = require('./signup');
 const httpStatus = require('http-status');
-const util = require('./hello');
 
-const get = async (req, res) => {
+
+const post = async (req, res) => {
   try {
-    const ans = util.sayHello();
+    const ans = await util.signup(req.body);
 
-    if (!ans) {
-      return res
-        .status(httpStatus.NOT_FOUND)
-        .send({ message: 'Not found' });
-    }
     return res
       .status(httpStatus.OK)
       .send(ans);
@@ -22,5 +18,5 @@ const get = async (req, res) => {
 };
 
 module.exports = {
-  get,
+  post
 };
