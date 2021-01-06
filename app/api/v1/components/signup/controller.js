@@ -4,7 +4,7 @@ const httpStatus = require('http-status');
 
 const post = async (req, res) => {
   try {
-    const ans = await util.signup(req.body);
+    const ans = await util.register(req.body);
 
     return res
       .status(httpStatus.OK)
