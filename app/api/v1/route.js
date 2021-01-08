@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { validateToken } = require('../../middleware/authentication');
 
 const router = new Router();
 
@@ -11,6 +12,6 @@ const transaction = require('./components/transaction/route');
 
 router.use('/auth/login', login);
 router.use('/auth/signup', signup);
-router.use('/transaction', transaction);
+router.use('/transaction', validateToken ,transaction);
 
 module.exports = router;

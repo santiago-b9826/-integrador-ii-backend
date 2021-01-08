@@ -10,6 +10,11 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 
 /**
+ * Load environment variables from .env file
+ */
+dotenv.config();
+
+/**
  * OpenAPI documentation
  */
 const swaggerDocument = YAML.load(`${__dirname}/swagger/v1.yml`);
@@ -18,11 +23,6 @@ const swaggerDocument = YAML.load(`${__dirname}/swagger/v1.yml`);
  * Routes to the different resources
  */
 const routes = require('../app/routes');
-
-/**
- * Load environment variables from .env file
- */
-dotenv.config();
 
 /**
  * Importing configuration variables
