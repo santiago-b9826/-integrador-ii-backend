@@ -10,6 +10,11 @@ const post = async (req, res) => {
       .send({token:ans});
   } catch (error) {
     console.error(error);
+    if(error.code === "NotAuthorizedException") {
+      return res
+      .status(httpStatus.UNAUTHORIZED)
+      .send({ message: 'Incorrect username or password.' });
+    }
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
       .send({ message: 'Internal server error' });
