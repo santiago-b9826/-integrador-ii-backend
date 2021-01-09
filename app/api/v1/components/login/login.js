@@ -23,22 +23,30 @@ const login = async (body) => {
     Username: userName,
     Pool: userPool
   }
+  console.log(userData);
   let cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
-  return await authenticate(cognitoUser, authenticationDetails);
+  return await authenticate(cognitoUser, authenticationDetails, password);
 };
 
-const authenticate = async (cognitoUser, authenticationDetails) => {
+const authenticate = async (cognitoUser, authenticationDetails, password) => {
   return new Promise((resolve, reject) => {
     cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: (result) => {
+      onSuccess: function (result) {
         let accesstoken = result.getAccessToken().getJwtToken();
         resolve(accesstoken);
       },
-      onFailure: ((err) => {
+      onFailure: function (err) {
+        console.log("Error from cognito promise: ", err);
         reject(err);
-      })
+      },
+      newPasswordRequired: function (userAttributes) {
+        delete userAttributes.email_verified;
+        cognitoUser.completeNewPasswordChallenge(password, userAttributes, this);
+      }
     })
   })
 }
 
-module.exports = login;
+module.exports = {
+  login
+};

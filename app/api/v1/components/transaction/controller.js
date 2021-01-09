@@ -12,7 +12,7 @@ const getAll = async (res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -27,7 +27,7 @@ const getByProjectId = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -42,7 +42,7 @@ const update = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -57,7 +57,7 @@ const deleteById = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -72,7 +72,7 @@ const create = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 

@@ -12,7 +12,7 @@ const post = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
