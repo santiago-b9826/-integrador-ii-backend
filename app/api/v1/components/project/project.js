@@ -9,8 +9,7 @@ const create = async (body) => {
     neighborhood: body.neighborhood,
     address: body.address,
     // owner: User,
-    // admin: [User],
-    // audit: [User]
+    // admin: [User]
   });
 
   return await project.save();
@@ -30,7 +29,7 @@ const get = (projectId) => {
 }
 
 const update = (id, body) => {
-  const Project = new Project({
+  const project = {
     name: body.name,
     description: body.description,
     state: body.state,
@@ -38,14 +37,27 @@ const update = (id, body) => {
     neighborhood: body.neighborhood,
     address: body.address,
     // owner: User,
-    // admin: [User],
-    // audit: [User]
-  });
-  return Project.findByIdAndUpdate(id, Project, { new: true }).exec();
+    // admin: [User]
+  };
+
+  return Project.findByIdAndUpdate(
+    { _id: id },
+    deleteEmptyFields(project),
+    { new: true })
+    .exec();
 }
 
 const deleteById = async (id) => {
   return await Project.findByIdAndRemove(id).exec();
+}
+
+const deleteEmptyFields = (object) => {
+  Object.keys(object).forEach(field => {
+    if (object[field] === null || object[field] === undefined) {
+      delete object[field]
+    }
+  });
+  return object;
 }
 
 module.exports = {
