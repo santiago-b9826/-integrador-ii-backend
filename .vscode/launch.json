@@ -8,11 +8,16 @@
             "type": "node",
             "request": "launch",
             "name": "Integrador II Development",
+            "runtimeExecutable": "nodemon",
+            "restart": true,
             "program": "${workspaceFolder}/app.js",
             "cwd": "${workspaceFolder}",
             "env": {
                 "NODE_ENV": "development"
-            }
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
