@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { validateToken } = require('../../middleware/authentication');
 
 const router = new Router();
 
