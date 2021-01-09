@@ -24,6 +24,7 @@ const register = async (body) => {
 
 const signUp = async (...args) => {
   return new Promise((resolve, reject) => {
+    console.log(...args);
     userPool.signUp(...args, (err, result) => {
       if (err) {
         reject(err);
@@ -34,4 +35,6 @@ const signUp = async (...args) => {
   })
 }
 
-module.exports = register;
+module.exports = {
+  register
+};
