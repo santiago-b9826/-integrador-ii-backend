@@ -50,6 +50,7 @@ const validateToken = (req, res, next) => {
           res.status(401);
           return res.send({message:"Invalid token"});
         } else {
+          req.userdata = decodedJwt.payload;
           console.log("Valid Token.");
           return next();
         }
