@@ -1,7 +1,7 @@
 {
-  "name": "basicexpressserver",
+  "name": "integradoriibackend",
   "version": "1.0.2",
-  "description": "Basic express server with a simple MongoDB connection for general purposes",
+  "description": "Basic application to handle construction costs",
   "main": "app.js",
   "scripts": {
     "lint": "eslint ./ --fix",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cdanmontoya/BasicExpressServer.git"
+    "url": "git+https://github.com/santiago-b9826/integrador-ii-backend.git"
   },
   "author": "cdanmontoya",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cdanmontoya/BasicExpressServer/issues"
+    "url": "https://github.com/santiago-b9826/integrador-ii-backend/issues"
   },
-  "homepage": "https://github.com/cdanmontoya/BasicExpressServer#readme",
+  "homepage": "https://github.com/santiago-b9826/integrador-ii-backend#readme",
   "dependencies": {
     "amazon-cognito-identity-js": "^4.5.4",
     "aws-cognito-jwt-authenticate": "^1.0.1",
@@ -27,10 +27,13 @@
     "express": "^4.17.1",
     "express-openapi": "^6.0.0",
     "http-status": "^1.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.4",
     "minimist": "^1.2.5",
     "mongodb": "^3.6.3",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
+    "request": "^2.88.2",
     "sequelize": "^5.21.3",
     "swagger-ui-express": "^4.1.3",
     "yamljs": "^0.3.0"
