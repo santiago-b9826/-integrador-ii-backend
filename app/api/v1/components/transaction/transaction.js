@@ -1,3 +1,4 @@
+const { fileURLToPath } = require("url");
 const Transaction = require("./model");
 
 const create = async (body) => {
@@ -15,15 +16,10 @@ const create = async (body) => {
   return await transaction.save();
 }
 
-const getAll = async () => {
-  return await Transaction.find()
+const get = async (filters) => {
+  console.log(filters);
+  return await Transaction.find({...filters})
   .sort({ creationDate: -1 })
-}
-
-const getByProjectId = async (projectId) => {
-   return await Transaction.find({
-    projectId: projectId
-  }).exec();
 }
 
 const update = async (id, body) => {
@@ -45,8 +41,7 @@ const deleteById = async (id) => {
 
 module.exports = {
   create,
-  getAll,
-  getByProjectId,
+  get,
   deleteById,
   update
 }

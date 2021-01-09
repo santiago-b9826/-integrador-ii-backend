@@ -12,6 +12,6 @@ const transaction = require('./components/transaction/route');
 
 router.use('/auth/login', login);
 router.use('/auth/signup', signup);
-router.use('/transaction', validateToken ,transaction);
+router.use('/transactions', transaction);
 
 module.exports = router;
