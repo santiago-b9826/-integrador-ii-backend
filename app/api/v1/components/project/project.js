@@ -8,7 +8,7 @@ const create = async (body) => {
     city: body.city,
     neighborhood: body.neighborhood,
     address: body.address,
-    // owner: User,
+    owner: body.username
     // admin: [User]
   });
 
@@ -36,7 +36,6 @@ const update = (id, body) => {
     city: body.city,
     neighborhood: body.neighborhood,
     address: body.address,
-    // owner: User,
     // admin: [User]
   };
 

@@ -4,7 +4,8 @@ const util = require('./project');
 const create = async (req, res) => {
   try {
     const { body } = req;
-
+    body.username = req.userdata;
+    
     if (!body) {
       return res
         .status(httpStatus.BAD_REQUEST)

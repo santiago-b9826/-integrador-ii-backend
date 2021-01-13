@@ -12,9 +12,8 @@ const project = new Schema({
   city: String,
   neighborhood: String,
   address: String,
-  // owner: User,
-  // admin: [ User ],
-  // audit: [ User ]
+  owner: String,
+  // admin: [ User ]
 })
 
 module.exports = mongoose.model("Projects", project);

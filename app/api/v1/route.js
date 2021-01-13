@@ -14,6 +14,6 @@ const project = require('./components/project/route');
 router.use('/auth/login', login);
 router.use('/auth/signup', signup);
 router.use('/transaction', transaction);
-router.use('/project', project);
+router.use('/project', validateToken, project);
 
 module.exports = router;
