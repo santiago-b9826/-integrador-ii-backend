@@ -4,7 +4,6 @@ const httpStatus = require('http-status');
 
 const post = async (req, res) => {
   try {
-    console.log(util);
     const ans = await util.register(req.body);
 
     return res
