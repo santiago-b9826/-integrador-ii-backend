@@ -4,13 +4,14 @@ const util = require('./project');
 const create = async (req, res) => {
   try {
     const { body } = req;
-    body.username = req.userdata;
     
     if (!body) {
       return res
-        .status(httpStatus.BAD_REQUEST)
-        .send({ message: 'Bad Request' });
+      .status(httpStatus.BAD_REQUEST)
+      .send({ message: 'Bad Request' });
     }
+
+    body.username = req.userdata.username;
 
     const ans = await util.create(body);
 
@@ -21,7 +22,7 @@ const create = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -36,7 +37,7 @@ const getAll = async (res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -54,7 +55,7 @@ const get = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -71,7 +72,7 @@ const update = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
@@ -86,7 +87,7 @@ const deleteById = async (req, res) => {
     console.error(error);
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Interal server error' });
+      .send({ message: 'Internal server error' });
   }
 };
 
