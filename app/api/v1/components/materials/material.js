@@ -1,15 +1,23 @@
-const { fileURLToPath } = require("url");
-const Transaction = require("./model");
+const Transaction = require("../transaction/model");
 
-const getMaterials = async (filters) => {
-  { projectId, typeOfMaterial } = filters;
-  return await Transaction.aggregate(
-    { $match : {type:"Material"}},
-    { $unwind: '$products'},
-    { $match: {'products.description': typeOfMaterial}}
-  )
+const getAllTransactionsOnMaterialType = async (filters) => {
+  console.log(filters);
+  const { projectId, typeOfMaterial } = filters;
+  return await Transaction.aggregate([
+    { $match: { $and: [{ type: "Material" }, { projectId: projectId }] } },
+    { $unwind: '$products' },
+    { $match: { 'products.description': typeOfMaterial } }
+  ])
+}
+
+const getAllMaterialTransactions = async (filters) => {
+  const { projectId } = filters;
+  return await Transaction.aggregate([
+    { $match: { $and: [{ type: "Material" }, { projectId: projectId }] } }
+  ])
 }
 
 module.exports = {
-  get,
+  getAllTransactionsOnMaterialType,
+  getAllMaterialTransactions
 }

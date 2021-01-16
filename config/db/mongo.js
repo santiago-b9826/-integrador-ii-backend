@@ -4,7 +4,7 @@ const {
   DB_HOST,
 } = process.env;
 
-const MONGODB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true };
+const MONGODB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false };
 
 /**
  * This URI structure is meant to be used on MongoDB Atlas.

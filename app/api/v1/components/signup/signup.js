@@ -19,7 +19,7 @@ const register = async (body) => {
 
   attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({ Name: "email", Value: email }));
   const user = await signUp(name, password, attributeList, null);
-  return signUp
+  return user;
 }
 
 const signUp = async (...args) => {
@@ -27,12 +27,12 @@ const signUp = async (...args) => {
     console.log(...args);
     userPool.signUp(...args, (err, result) => {
       if (err) {
-        reject(err);
+        return reject(err.message);
       }
       let cognitoUser = result.user;
       resolve(cognitoUser);
-    })
-  })
+    });
+  });
 }
 
 module.exports = {

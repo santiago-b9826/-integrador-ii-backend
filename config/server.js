@@ -43,6 +43,7 @@ const {
  * @param {*} app Basic Express app
  */
 const server = (app) => {
+  console.log(process.env.DB_DIALECT);
   if (process.env.DB_DIALECT === 'mongo') {
     mongoose.connect(MONGO_URI, MONGODB_OPTIONS, (err) => {
       if (err) {
