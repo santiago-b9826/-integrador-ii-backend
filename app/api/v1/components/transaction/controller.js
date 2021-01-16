@@ -1,24 +1,9 @@
 const httpStatus = require('http-status');
 const util = require('./transaction');
 
-const getAll = async (res) => {
+const get = async (req, res) => {
   try {
-    const ans = await util.getAll();
-
-    return res
-      .status(httpStatus.OK)
-      .send(ans);
-  } catch (error) {
-    console.error(error);
-    return res
-      .status(httpStatus.INTERNAL_SERVER_ERROR)
-      .send({ message: 'Internal server error' });
-  }
-};
-
-const getByProjectId = async (req, res) => {
-  try {
-    const ans = await util.getByProjectId(req.query.projectId);
+    const ans = await util.get(req.query);
 
     return res
       .status(httpStatus.OK)
@@ -79,7 +64,6 @@ const create = async (req, res) => {
 module.exports = {
   create,
   update,
-  getAll,
-  getByProjectId,
+  get,
   deleteById
 };

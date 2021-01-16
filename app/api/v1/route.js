@@ -8,12 +8,14 @@ const router = new Router();
  */
 const signup = require('./components/signup/route');
 const login = require('./components/login/route');
-const transaction = require('./components/transaction/route');
-const project = require('./components/project/route');
+const transactions = require('./components/transaction/route');
+const projects = require('./components/project/route');
+const materials = require('./components/materials/route');
 
 router.use('/auth/login', login);
 router.use('/auth/signup', signup);
-router.use('/transaction', transaction);
-router.use('/project', validateToken, project);
+router.use('/transactions', validateToken, transactions);
+router.use('/projects', validateToken, projects);
+router.use('/materials', validateToken, materials);
 
 module.exports = router;
