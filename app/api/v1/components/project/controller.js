@@ -44,9 +44,9 @@ const getAll = async (res) => {
 const get = async (req, res) => {
   try {
 
-    const { projectId } = req.params;
+    const { id } = req.params;
 
-    const ans = await util.get(projectId);
+    const ans = await util.get(id);
 
     return res
       .status(httpStatus.OK)
