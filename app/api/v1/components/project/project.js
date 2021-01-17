@@ -23,7 +23,7 @@ const getAll = () => {
 }
 
 const get = (projectId) => {
-  return Project.find({ projectId: projectId })
+  return Project.findOne({ _id: projectId })
     .lean()
     .exec();
 }
