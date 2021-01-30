@@ -14,19 +14,18 @@ const create = async (body) => {
 
 const get = async (filters) => {
   console.log(filters);
-  return await Material.find({...filters})
-  .sort({ creationDate: -1 })
+  return await Material.find({ ...filters })
+    .sort({ creationDate: -1 })
 }
 
 const update = async (id, body) => {
-  const material = new Material({
-    id: body.id,
+  const material = {
     projectId: body.projectId,
     description: body.description,
     type: body.type,
     amount: body.amount,
-  });
-  return await Material.findByIdAndUpdate(id, material, {new:true}).exec();
+  };
+  return await Material.findByIdAndUpdate(id, material).exec();
 }
 
 const deleteById = async (id) => {
